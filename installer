@@ -7,6 +7,20 @@ sudo mkdir /root/backup
 #--------------------------------------------------#
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
 #--------------------------------------------------#
+#Agregando Repositorios Universe y Multiverse https://help.ubuntu.com/community/Repositories/CommandLine#Adding%20the%20Universe%20and%20Multiverse%20Repositories
+#--------------------------------------------------#
+sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ $distro universe multiverse"
+sudo add-apt-repository "deb http://us.archive.ubuntu.com/ubuntu/ $distro-updates universe multiverse"
+#--------------------------------------------------#
+#Agregar repositorios de Partner
+#--------------------------------------------------#
+#deb http://archive.canonical.com/ubuntu saucy partner
+#deb-src http://archive.canonical.com/ubuntu saucy partner
+#--------------------------------------------------#
+#Actualizando repositorios
+#--------------------------------------------------#
+sudo apt-get update
+#--------------------------------------------------#
 #Respaldo de tus Bash RC
 #--------------------------------------------------#
 sudo cp ~/.bashrc /root/backup/
@@ -45,13 +59,14 @@ dpkg-reconfigure locales
 #--------------------------------------------------#
 #Instalar lo basico en el servidor
 #--------------------------------------------------#
-
-
 sudo apt-get install build-essential
-#
+#--------------------------------------------------#
+#Instalar GIT
+#--------------------------------------------------#
+sudo apt-get -y install git
 
 
-____________________________
+#____________________________ en construcción
 #Install Puppet http://docs.puppetlabs.com/guides/installation.html#debian-and-ubuntu
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
@@ -62,5 +77,22 @@ sudo apt-add-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get -y install nodejs
 
-#instalar havanna
+#--------------------------------------------------#
+#Acceder a OpenStack Havana http://www.ubuntu.com/download/cloud/cloud-archive-instructions
+#--------------------------------------------------#
 sudo add-apt-repository cloud-archive:havana
+
+#--------------------------------------------------#
+#Instalar EC2 API tools https://help.ubuntu.com/community/EC2StartersGuide
+#--------------------------------------------------#
+sudo apt-add-repository ppa:awstools-dev/awstools
+sudo apt-get update
+sudo apt-get install ec2-api-tools
+#--------------------------------------------------#
+#agrega esto a tu ~/.bashrc si usas bash como shell:
+#export EC2_KEYPAIR=<your keypair name> # solo el nombre, no el nombre del archivo
+#export EC2_URL=https://ec2.<your ec2 region>.amazonaws.com
+#export EC2_PRIVATE_KEY=$HOME/<where your private key is>/pk-XXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+#export EC2_CERT=$HOME/<where your certificate is>/cert-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pem
+#export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
+#--------------------------------------------------#
