@@ -1,0 +1,52 @@
+#--------------------------------------------------#
+#Actualizar su servidor de Ubuntu 12.04.X
+#--------------------------------------------------#
+sudo apt-get update
+#--------------------------------------------------#
+#Mejorar su servidor de Ubuntu 12.04.X
+#--------------------------------------------------#
+sudo apt-get upgrade
+#--------------------------------------------------#
+#Definir Locales español
+#--------------------------------------------------#
+export LANGUAGE=es_ES.UTF-8 UTF-8
+export LANG=es_ES.UTF-8 UTF-8
+export LC_ALL=es_ES.UTF-8 UTF-8
+locale-gen es_ES.UTF-8
+#--------------------------------------------------#
+#Despues
+#nano .bashrc
+#
+#al final del codigo
+#
+#export LANGUAGE=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#Parar poner en ingles
+#export LANGUAGE=en_US.UTF-8
+#export LANG=en_US.UTF-8
+#export LC_ALL=en_US.UTF-8
+#locale-gen en_US.UTF-8
+#--------------------------------------------------#
+apt-get install locales
+dpkg-reconfigure locales
+#--------------------------------------------------#
+#Instalar lo basico en el servidor
+#--------------------------------------------------#
+sudo apt-get install build-essential
+#
+
+
+____________________________
+#Install Puppet http://docs.puppetlabs.com/guides/installation.html#debian-and-ubuntu
+wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
+sudo dpkg -i puppetlabs-release-precise.deb
+sudo apt-get update
+
+#Instalar Node.js http://nodejs.org/download/
+sudo apt-add-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get -y install nodejs
+
+#instalar havanna
+sudo add-apt-repository cloud-archive:havana
