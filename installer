@@ -1,4 +1,16 @@
 #--------------------------------------------------#
+#Directorio de Respaldos
+#--------------------------------------------------#
+sudo mkdir /root/backup
+#--------------------------------------------------#
+#Respaldo de tus repositorios
+#--------------------------------------------------#
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+#--------------------------------------------------#
+#Respaldo de tus Bash RC
+#--------------------------------------------------#
+sudo cp .bashrc /root/backup/
+#--------------------------------------------------#
 #Actualizar su servidor de Ubuntu 12.04.X
 #--------------------------------------------------#
 sudo apt-get update
@@ -33,6 +45,8 @@ dpkg-reconfigure locales
 #--------------------------------------------------#
 #Instalar lo basico en el servidor
 #--------------------------------------------------#
+
+
 sudo apt-get install build-essential
 #
 
