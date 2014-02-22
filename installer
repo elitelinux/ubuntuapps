@@ -14,33 +14,53 @@ export LANG=es_ES.UTF-8 UTF-8
 export LC_ALL=es_ES.UTF-8 UTF-8
 locale-gen es_ES.UTF-8
 #--------------------------------------------------#
-#Despues
-#nano .bashrc
-#
-#al final del codigo
-#
-#export LANGUAGE=en_US.UTF-8
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
-#Parar poner en ingles
-#export LANGUAGE=en_US.UTF-8
-#export LANG=en_US.UTF-8
-#export LC_ALL=en_US.UTF-8
-#locale-gen en_US.UTF-8
+##Despues
+##nano .bashrc
+##
+##al final del codigo
+##
+##export LANGUAGE=en_US.UTF-8
+##export LANG=en_US.UTF-8
+##export LC_ALL=en_US.UTF-8
+##Parar poner en ingles
+##export LANGUAGE=en_US.UTF-8
+##export LANG=en_US.UTF-8
+##export LC_ALL=en_US.UTF-8
+##locale-gen en_US.UTF-8
 #--------------------------------------------------#
 apt-get install locales
 dpkg-reconfigure locales
 #--------------------------------------------------#
 #Instalar lo basico en el servidor
 #--------------------------------------------------#
-sudo apt-get install build-essential
+sudo apt-get -y install build-essential
+#--------------------------------------------------#
+#Instalar Webmin
+#--------------------------------------------------#
+sudo apt-get -y install libnet-ssleay-perl libauthen-pam-perl libio-pty-perl apt-show-versions libapt-pkg-perl
+wget http://prdownloads.sourceforge.net/webadmin/webmin_1.670_all.deb
+dpkg -i webmin_1.670_all.deb
+#
+#
+aptitude update
+aptitude safe-upgrade
+#
+sudo apt-get -y install apachetop apache2-utils apache2 mysql-server mysql-common mysql-client php5-dev php5-xmlrpc php5-snmp php5-mcrypt php5-ffmpeg php5-geoip php5-imap php5-mysql php5-pgsql php5-odbc php5-imagick php5-gd php5-cli php5-curl php5-xsl
+sudo apt-get -y install phpmyadmin owncloud phppgadmin git 
 #
 
-
-____________________________
-
 # instalar Python Tools
-sudo apt-get install python-setuptools python-pip python-neutronclient
+sudo apt-get -y install python-software-properties python-setuptools python-pip
+____________________________
+#Instalar Node.js http://nodejs.org/download/
+sudo apt-add-repository ppa:chris-lea/node.js
+sudo apt-get update
+sudo apt-get -y install nodejs
+
+#instalar cordoba para aplicaciones mobiles https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
+sudo npm install -g cordova
+
+
 
 #instalar havanna
 sudo add-apt-repository cloud-archive:havana
@@ -49,11 +69,3 @@ sudo add-apt-repository cloud-archive:havana
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
 sudo apt-get update
-
-
-#Instalar Node.js http://nodejs.org/download/
-sudo apt-add-repository ppa:chris-lea/node.js
-sudo apt-get update
-sudo apt-get -y install nodejs
-#instalar cordoba para aplicaciones mobiles https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
-sudo npm install -g cordova
