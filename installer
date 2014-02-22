@@ -45,8 +45,15 @@ dpkg -i webmin_1.670_all.deb
 aptitude update
 aptitude safe-upgrade
 #
-sudo apt-get -y install apachetop apache2-utils apache2 mysql-server mysql-common mysql-client php5-dev php5-xmlrpc php5-snmp php5-mcrypt php5-ffmpeg php5-geoip php5-imap php5-mysql php5-pgsql php5-odbc php5-imagick php5-gd php5-cli php5-curl php5-xsl
-sudo apt-get -y install phpmyadmin owncloud phppgadmin git 
+sudo apt-get -y install apachetop apache2-utils apache2 libexpat1 ssl-cert mysql-server mysql-common mysql-client php5-dev php5-xmlrpc php5-snmp php5-mcrypt php5-ffmpeg php5-geoip php5-imap php5-mysql php5-pgsql php5-odbc php5-imagick php5-gd php5-cli php5-curl php5-xsl  php5-memcache php5-sqlite
+sudo apt-get -y install phpmyadmin owncloud git
+# asegurar mysql sudo /usr/bin/mysql_secure_installation
+# GRANT ALL ON fooDatabase.* TO fooUser@'1.2.3.4' IDENTIFIED BY 'my_password';
+# mysql -u $user -p -h 44.55.66.77
+sudo apt-get -y install postgresql phppgadmin
+sudo -u postgres psql postgres
+
+#ALTER USER postgres WITH ENCRYPTED PASSWORD '<your_password>'; 
 #
 
 # instalar Python Tools
