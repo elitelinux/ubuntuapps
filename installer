@@ -42,15 +42,18 @@ ____________________________
 # instalar Python Tools
 sudo apt-get install python-setuptools python-pip python-neutronclient
 
+#instalar havanna
+sudo add-apt-repository cloud-archive:havana
+
 #Install Puppet http://docs.puppetlabs.com/guides/installation.html#debian-and-ubuntu
 wget https://apt.puppetlabs.com/puppetlabs-release-precise.deb
 sudo dpkg -i puppetlabs-release-precise.deb
 sudo apt-get update
 
+
 #Instalar Node.js http://nodejs.org/download/
 sudo apt-add-repository ppa:chris-lea/node.js
 sudo apt-get update
 sudo apt-get -y install nodejs
-
-#instalar havanna
-sudo add-apt-repository cloud-archive:havana
+#instalar cordoba para aplicaciones mobiles https://hacks.mozilla.org/2014/02/building-cordova-apps-for-firefox-os/
+sudo npm install -g cordova
